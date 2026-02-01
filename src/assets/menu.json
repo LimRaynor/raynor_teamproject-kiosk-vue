@@ -1,0 +1,30 @@
+[
+  {
+    "id": 1,
+    "name": "치즈버거",
+    "price": 6000,
+    "category": "burger",
+    "image": "🍔"
+  },
+  {
+    "id": 2,
+    "name": "불고기버거",
+    "price": 5000,
+    "category": "burger",
+    "image": "🍖"
+  },
+  {
+    "id": 3,
+    "name": "감자튀김",
+    "price": 2000,
+    "category": "side",
+    "image": "🍟"
+  },
+  {
+    "id": 4,
+    "name": "콜라",
+    "price": 1500,
+    "category": "drink",
+    "image": "🥤"
+  }
+]
