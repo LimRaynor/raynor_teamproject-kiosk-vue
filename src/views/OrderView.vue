@@ -3,7 +3,7 @@
 
     <div class="category-sidebar">
       <button @click="currentCategory = 'all'">전체</button>
-      <button @click="currentCategory = 'burger'">버거</button>
+      <button @click="currentCategory = 'burger'">햄버거</button>
       <button @click="currentCategory = 'side'">사이드</button>
       <button @click="currentCategory = 'drink'">음료</button>
     </div>
@@ -28,7 +28,7 @@
       <h2>내 주문 내역</h2>
 
       <div v-if="cartStore.cartItems.length === 0" class="empty-cart">
-        장바구니가 비어있어요.
+        장바구니에 아무것도 없습니다.
       </div>
 
       <ul class="cart-list">
@@ -58,13 +58,14 @@ import menuData from '@/assets/menu.json' // json 데이터 가져오기
 import { useCartStore } from '@/stores/cart' // Pinia 스토어 가져오기
 
 const cartStore = useCartStore() // 스토어 사용 시작
-const currentCategory = ref('all') // 현재 선택된 카테고리
+const currentCategory = ref('전메뉴') // 현재 선택된 카테고리
 
 // 선택된 카테고리에 따라 메뉴 필터링 (Computed)
 const filteredMenuList = computed(() => {
-  if (currentCategory.value === 'all') {
+  if (currentCategory.value === '전메뉴') {
     return menuData
   }
+  // 이제 item.category(한글)와 currentCategory(한글)를 비교합니다
   return menuData.filter(item => item.category === currentCategory.value)
 })
 </script>
@@ -78,7 +79,7 @@ const filteredMenuList = computed(() => {
 
 .category-sidebar {
   width: 15%;
-  background-color: #333;
+  background-color: #43b9af;
   display: flex;
   flex-direction: column;
 }
@@ -146,7 +147,7 @@ const filteredMenuList = computed(() => {
 .pay-btn {
   width: 100%;
   padding: 15px;
-  background-color: #ff9800;
+  background-color: #7fe215;
   color: white;
   border: none;
   font-size: 20px;
