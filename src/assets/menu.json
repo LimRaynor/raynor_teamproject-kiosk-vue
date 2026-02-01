@@ -1,14 +1,14 @@
 [
   {
     "id": 1,
-    "name": "치즈버거",
+    "name": "더블패티버거",
     "price": 6000,
     "category": "햄버거",
     "image": "/images/burger1.png"
   },
   {
     "id": 2,
-    "name": "불고기버거",
+    "name": "더블피넛베이컨버거",
     "price": 5000,
     "category": "햄버거",
     "image": "public/images/burger2.png"

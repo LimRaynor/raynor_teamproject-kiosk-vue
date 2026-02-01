@@ -2,10 +2,10 @@
   <div class="kiosk-container">
 
     <div class="category-sidebar">
-      <button @click="currentCategory = 'all'">전체</button>
-      <button @click="currentCategory = 'burger'">햄버거</button>
-      <button @click="currentCategory = 'side'">사이드</button>
-      <button @click="currentCategory = 'drink'">음료</button>
+      <button @click="currentCategory = '전체메뉴'">전체메뉴</button>
+      <button @click="currentCategory = '햄버거'">햄버거</button>
+      <button @click="currentCategory = '사이드'">사이드</button>
+      <button @click="currentCategory = '음료'">음료</button>
     </div>
 
     <div class="menu-grid">
@@ -31,7 +31,11 @@
         장바구니에 아무것도 없습니다.
       </div>
 
-      <ul class="cart-list">
+<!--
+  이게 장바구니 넣고 빼는 기능인데
+아직 이해를 못해서  주석처리 해둠
+
+ <ul class="cart-list">
         <li v-for="item in cartStore.cartItems" :key="item.id">
           <span>{{ item.name }}</span>
           <div class="qty-control">
@@ -41,7 +45,7 @@
           </div>
           <span>{{ (item.price * item.qty).toLocaleString() }}원</span>
         </li>
-      </ul>
+      </ul>-->
 
       <div class="total-area">
         <h3>총 결제금액: {{ cartStore.totalPrice.toLocaleString() }}원</h3>
@@ -62,7 +66,8 @@ const currentCategory = ref('전메뉴') // 현재 선택된 카테고리
 
 // 선택된 카테고리에 따라 메뉴 필터링 (Computed)
 const filteredMenuList = computed(() => {
-  if (currentCategory.value === '전메뉴') {
+  if (currentCategory.value === '전체메뉴') {
+    // 전체 메뉴를 조회하고싶을때 값설정
     return menuData
   }
   // 이제 item.category(한글)와 currentCategory(한글)를 비교합니다
