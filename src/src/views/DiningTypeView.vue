@@ -15,6 +15,22 @@
       <section class="menu-section">
         <aside class="목록">
           <ul>
+            <li v-for="category in categories" :key="category.id">
+
+              <button
+                  class="footer-btn category-btn"
+                  :class="{ active: selectedCategoryId === category.id }"
+                  @click="selectCategory(category.id)"
+              >
+                {{ category.name }} </button>
+
+            </li>
+          </ul>
+        </aside>
+<!--
+
+ <aside class="목록">
+          <ul>
             <button class="footer-btn">목록</button>
             <button class="footer-btn">목록</button>
             <button class="footer-btn">목록</button>
@@ -23,62 +39,76 @@
             <button class="footer-btn">목록</button>
             <button class="footer-btn">목록</button>
           </ul>
-        </aside>
+        </aside>-->
 
-        <div class="product-grid-container">
-          <div class="product-grid">
-            <div>
-              <div class="product-img">상품</div>
-              <div class="product-info">메뉴명 / 가격</div>
-            </div>
-            <div>
-              <div class="product-img">상품</div>
-              <div class="product-info">메뉴명 / 가격</div>
-            </div>
-            <div>
-              <div class="product-img">상품</div>
-              <div class="product-info">메뉴명 / 가격</div>
-            </div>
-            <div>
-              <div class="product-img">상품</div>
-              <div class="product-info">메뉴명 / 가격</div>
-            </div>
-            <div>
-              <div class="product-img">상품</div>
-              <div class="product-info">메뉴명 / 가격</div>
-            </div>
-            <div>
-              <div class="product-img">상품</div>
-              <div class="product-info">메뉴명 / 가격</div>
-            </div>
-            <div>
-              <div class="product-img">상품</div>
-              <div class="product-info">메뉴명 / 가격</div>
-            </div>
-            <div>
-              <div class="product-img">상품</div>
-              <div class="product-info">메뉴명 / 가격</div>
-            </div>
-            <div>
-              <div class="product-img">상품</div>
-              <div class="product-info">메뉴명 / 가격</div>
-            </div>
-            <div>
-              <div class="product-img">상품</div>
-              <div class="product-info">메뉴명 / 가격</div>
-            </div>
-            <div>
-              <div class="product-img">상품</div>
-              <div class="product-info">메뉴명 / 가격</div>
-            </div>
-            <div>
-              <div class="product-img">상품</div>
-              <div class="product-info">메뉴명 / 가격</div>
+        <div class="product-grid">
+          <div v-for="product in filteredProducts" :key="product.id" class="product-item">
+
+            <div class="product-img">
+              상품
             </div>
 
+            <div class="product-info">
+              {{ product.name }} / {{ formatPrice(product.price) }}
+            </div>
 
           </div>
         </div>
+
+        <!--    <div class="product-grid-container">
+              <div class="product-grid">
+                <div>
+                  <div class="product-img">상품</div>
+                  <div class="product-info">메뉴명 / 가격</div>
+                </div>
+                <div>
+                  <div class="product-img">상품</div>
+                  <div class="product-info">메뉴명 / 가격</div>
+                </div>
+                <div>
+                  <div class="product-img">상품</div>
+                  <div class="product-info">메뉴명 / 가격</div>
+                </div>
+                <div>
+                  <div class="product-img">상품</div>
+                  <div class="product-info">메뉴명 / 가격</div>
+                </div>
+                <div>
+                  <div class="product-img">상품</div>
+                  <div class="product-info">메뉴명 / 가격</div>
+                </div>
+                <div>
+                  <div class="product-img">상품</div>
+                  <div class="product-info">메뉴명 / 가격</div>
+                </div>
+                <div>
+                  <div class="product-img">상품</div>
+                  <div class="product-info">메뉴명 / 가격</div>
+                </div>
+                <div>
+                  <div class="product-img">상품</div>
+                  <div class="product-info">메뉴명 / 가격</div>
+                </div>
+                <div>
+                  <div class="product-img">상품</div>
+                  <div class="product-info">메뉴명 / 가격</div>
+                </div>
+                <div>
+                  <div class="product-img">상품</div>
+                  <div class="product-info">메뉴명 / 가격</div>
+                </div>
+                <div>
+                  <div class="product-img">상품</div>
+                  <div class="product-info">메뉴명 / 가격</div>
+                </div>
+                <div>
+                  <div class="product-img">상품</div>
+                  <div class="product-info">메뉴명 / 가격</div>
+                </div>
+
+
+              </div>
+            </div>-->
       </section>
     </main>
 
